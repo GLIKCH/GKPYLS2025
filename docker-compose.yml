@@ -1,3 +1,5 @@
+version: "3.8"
+
 services:
   mongodb:
     image: mongo:latest
@@ -7,9 +9,9 @@ services:
     volumes:
       - mongodb_data:/data/db
 
-  backend:
+  flask_backend:
     build:
-      context: ./py_flsk_bken_dev_2025  # Adjust this path based on your backend folder
+      context: ./py_flsk_bken_dev_2025
       dockerfile: Dockerfile
     container_name: flask_bken
     depends_on:
@@ -18,6 +20,18 @@ services:
       - "5000:5000"
     environment:
       - MONGO_URI=mongodb://mongodb:27017/p_f_bken2025
+
+  frontend:
+    build:
+      context: ./react_fren_dev_2025
+      dockerfile: Dockerfile
+    container_name: react_fren
+    depends_on:
+      - flask_backend
+    ports:
+      - "3000:3000"
+    environment:
+      - REACT_APP_BACKEND_URL=http://flask_bken:5000  # Ensure this matches backend container
 
 volumes:
   mongodb_data:
