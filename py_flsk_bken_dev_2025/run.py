@@ -1,10 +1,12 @@
 from flask import Flask, request, jsonify
 from flask_pymongo import PyMongo
+from bson.objectid import ObjectId
+
 
 app = Flask(__name__)
 
 # MongoDB URI
-app.config["MONGO_URI"] = "mongodb://localhost:27017/p_f_bken2025"
+app.config["MONGO_URI"] = "mongodb://mongodb:27017/p_f_bken2025"
 
 # Initialize Mongo
 mongo = PyMongo(app)
@@ -55,4 +57,5 @@ def delete_record(record_id):
     return jsonify(message="Record not found"), 404
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
+

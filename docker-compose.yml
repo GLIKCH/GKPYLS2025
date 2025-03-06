@@ -11,7 +11,7 @@ services:
 
   backend:
     build:
-      context: .
+      context: ./py_flsk_bken_dev_2025  # Adjust this path based on your backend folder
       dockerfile: Dockerfile
     container_name: flask_bken
     depends_on:
@@ -19,17 +19,7 @@ services:
     ports:
       - "5000:5000"
     environment:
-      - MONGO_URI=mongodb://mongodb:27017/mydatabase
-
-  frontend:
-    build:
-      context: .
-      dockerfile: frontend.Dockerfile
-    container_name: react_ften
-    depends_on:
-      - backend
-    ports:
-      - "3000:3000"
+      - MONGO_URI=mongodb://mongodb:27017/p_f_bken2025
 
 volumes:
   mongodb_data:
