@@ -1,6 +1,6 @@
 # GKPYLS2025
 # By: Joel J. De Alba - M.D.C.S Cybersecurity - B.S.C.S Software Engineering - Full Stack Software Engineer
-# Last Active Update - 03 / 19/ 2025
+# Last Active Update - 03 / 19 / 2025
 
 GKPYLS2025 is a full-stack project integrating a React-based frontend, a Flask-based backend, and an AI-powered system designed for research storage, education, and automation. The project aims to provide a web application for sharing knowledge on history, technology, social sciences, and engineering while also functioning as a personalized AI assistant.
 
